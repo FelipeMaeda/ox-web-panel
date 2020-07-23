@@ -16,7 +16,7 @@ export const CustomerList = ({ permissions, ...props }) =>  (
     <List {...props}>
         <Datagrid>
             <TextField source="name" />
-            <TextField source="description" />
+            <TextField source="cnpj" label="CNPJ" />
             <EditButton label="" />
             <DeleteButton label="" />
         </Datagrid>
@@ -27,6 +27,7 @@ export const CustomerCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="name" />
+            <TextInput source="cnpj" />
             <TextInput source="description" />
         </SimpleForm>
     </Create>
@@ -37,6 +38,7 @@ export const CustomerEdit = ({ permissions, ...props }) => (
         <TabbedForm>
             <FormTab label="summary">
                 <TextInput source="name" />
+                <TextInput source="cnpj" />
                 <TextInput source="description" />
             </FormTab>
             <FormTab label="users">
