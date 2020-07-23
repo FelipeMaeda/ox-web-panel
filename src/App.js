@@ -5,7 +5,7 @@ import dataProvider from './rest/dataProvider';
 import authProvider from './rest/authProvider';
 // Resources
 import { UserList, UserCreate, UserEdit } from './resources/users'
-import { CostumerList, CostumerCreate, CostumerEdit } from './resources/costumer'
+import { CustomerList, CustomerCreate, CustomerEdit } from './resources/customer'
 import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
 import { GroupList, GroupCreate } from './resources/group'
@@ -25,10 +25,10 @@ const App = () => (
       edit={ UserEdit }
       icon={ Face } 
     />
-    <Resource name="costumers"
-      list={ CostumerList }
-      create={ CostumerCreate }
-      edit={ CostumerEdit }
+    <Resource name="customers"
+      list={ CustomerList }
+      create={ CustomerCreate }
+      edit={ CustomerEdit }
       icon={ Domain } 
     />
     <Resource name="contexts"

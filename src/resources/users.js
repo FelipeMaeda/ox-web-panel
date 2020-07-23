@@ -33,7 +33,7 @@ export const UserList = ({ permissions, ...props }) =>  (
             <TextField source="name" />
             <TextField source="description" />
             <BooleanField source ="isAdmin" />
-            <ReferenceField source="costumer_id" reference="costumers">
+            <ReferenceField source="customer_id" reference="customers">
                 <TextField source="name" />
             </ReferenceField>
             <EditButton label="" />
@@ -49,7 +49,7 @@ export const UserCreate = ({ permissions, ...props }) => (
             <TextInput source="name" />
             <TextInput type="password" source="password" validate={ validatePassword }/>
             <TextInput source="description" />
-            <ReferenceInput source="costumer_id" reference="costumers" >
+            <ReferenceInput source="customer_id" reference="customers" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
             <BooleanInput source="isAdmin" /> 
@@ -63,7 +63,7 @@ export const UserEdit = ({ permissions, ...props }) => (
             <TextInput source="username" />
             <TextInput source="description" />
             <TextInput source="name" />
-            <ReferenceInput source="costumer_id" reference="costumers">
+            <ReferenceInput source="customer_id" reference="customers">
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
             <BooleanInput source="isAdmin" />

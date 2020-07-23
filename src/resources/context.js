@@ -18,7 +18,7 @@ export const ContextList = ({ permissions, ...props }) =>  (
             <TextField source="name" />
             <NumberField source="maxQuota" />
             <BooleanField source="enabled" />
-            <ReferenceField source="costumer_id" reference="costumers">
+            <ReferenceField source="customer_id" reference="customers">
                 <TextField source="name" />
             </ReferenceField>
             <EditButton label="" />
@@ -33,7 +33,7 @@ export const ContextCreate = ({ permissions, ...props }) => (
             <TextInput source="name" />
             <NumberInput source="maxQuota" />
             <TextInput type="password" source="password" />
-            <ReferenceInput source="costumer_id" reference="costumers" >
+            <ReferenceInput source="customer_id" reference="customers" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
         </SimpleForm>
@@ -48,7 +48,7 @@ export const ContextEdit = ({ permissions, ...props }) => (
                 <TextInput source="description" />
                 <NumberInput source="maxQuota" />
                 <BooleanInput source="enabled" />
-                <ReferenceInput source="costumer_id" reference="costumers" >
+                <ReferenceInput source="customer_id" reference="customers" >
                     <AutocompleteInput optionText="name" />
                 </ReferenceInput>
             </FormTab>
