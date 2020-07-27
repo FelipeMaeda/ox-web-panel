@@ -163,7 +163,8 @@ const httpClient = (url, options = {}) => {
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
   }
-  
-const dataProvider = restClient('http://localhost:5000/api', httpClient);
+
+var config = require('../config.json');
+const dataProvider = restClient( config.API_URL , httpClient);
 
 export default dataProvider

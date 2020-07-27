@@ -13,9 +13,7 @@ import { GroupList, GroupCreate } from './resources/group'
 
 //Theming
 import { Dashboard } from './dashboard/dashboard'
-import { Face, Domain,  AccountTree, Mail, Group, Print } from '@material-ui/icons';
-
-
+import { Face, Domain,  AccountTree, Mail, Group } from '@material-ui/icons';
 
 const App = () => (
   <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>

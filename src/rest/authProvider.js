@@ -1,10 +1,14 @@
 // in src/rest/authProvider.js
 import decodeJwt from 'jwt-decode';
 
+
+var config = require('../config.json');
+const API_URL = config.API_URL
+
 export default {
     // called when the user attempts to log in
     login: ({ username, password }) => {
-        const request = new Request('http://localhost:5000/api/auth/login', {
+        const request = new Request( API_URL + '/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
