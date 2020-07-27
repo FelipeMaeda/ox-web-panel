@@ -3,7 +3,8 @@ import {
     // List Imports 
     List, Datagrid, TextField, NumberField, BooleanField, ReferenceField, Filter,
     // Create Imports
-    Create, Edit, SimpleForm, TextInput, ReferenceInput, NumberInput, AutocompleteInput, ArrayInput, SimpleFormIterator,
+    Create, Edit, SimpleForm, 
+    TextInput, ReferenceInput, SelectInput, AutocompleteInput, ArrayInput, SimpleFormIterator,
     //Validation Imports
 
     //Button imports 
@@ -11,6 +12,13 @@ import {
     // Misc
 
 } from 'react-admin';
+
+const plans = [
+        {'id': 1, 'name': 'INOVA OXMAIL BASIC 2GB'}, 
+        {'id': 2, 'name': 'INOVA OXMAIL BASIC 5GB'}, 
+        {'id': 3, 'name': 'INOVA OXMAIL ADVANCED 2GB'},
+        {'id': 4, 'name': 'INOVA OXMAIL ADVANCED 5GB'},
+]
 
 export const MailboxFilter = (props) => (
     <Filter {...props}>
@@ -39,7 +47,7 @@ export const MailboxCreate = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="email" />
             <TextInput source="password" />
-            <NumberInput source="maxQuota" />
+            <SelectInput source="plan_id" label="Plan" choices={ plans } />
             <TextInput source="given_name" />
             <TextInput source="last_name" />
             <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
@@ -59,7 +67,7 @@ export const MailboxEdit = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="email" />
             <TextInput source="password" />
-            <NumberInput source="maxQuota" />
+            <SelectInput source="plan_id" label="Plan" choices={ plans } />
             <TextInput source="given_name" />
             <TextInput source="last_name" />
             <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
