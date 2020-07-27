@@ -46,7 +46,7 @@ export const MailboxCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="email" />
-            <TextInput source="password" />
+            <TextInput  type="password" source="password" />
             <SelectInput source="plan_id" label="Plan" choices={ plans } />
             <TextInput source="given_name" />
             <TextInput source="last_name" />
