@@ -1,4 +1,4 @@
 {    
-    "API_URL": "https://api.email.com.br:5000/api",
-    "WEB_URL": "https://web.email.com.br"
+    "API_URL": "https://localhost:8443/api",
+    "WEB_URL": "https://localhost"
 }
