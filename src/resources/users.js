@@ -5,7 +5,7 @@ import {
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, BooleanInput, ReferenceInput, AutocompleteInput,
     //Validation Imports
-    required, regex, minLength, maxLength, 
+    required, email, regex, 
     //Button imports 
     DeleteButton, EditButton,
     // Misc
@@ -14,8 +14,7 @@ import {
 
 const validateUsername = [
     required(),
-    minLength(2),
-    maxLength(15)
+    email()   
 ];
 
 const validatePassword = [
