@@ -18,6 +18,7 @@ const plans = [
         {'id': 2, 'name': 'INOVA OXMAIL BASIC 5GB'}, 
         {'id': 3, 'name': 'INOVA OXMAIL ADVANCED 2GB'},
         {'id': 4, 'name': 'INOVA OXMAIL ADVANCED 5GB'},
+        {'id': 5, 'name': 'INOVA OXMAIL ADVANCED 10GB'},
 ]
 
 export const MailboxFilter = (props) => (
