@@ -5,6 +5,7 @@ import dataProvider from './rest/dataProvider';
 import authProvider from './rest/authProvider';
 // Resources
 import { UserList, UserCreate, UserEdit } from './resources/users'
+import { PlanList } from './resources/plan'
 import { CustomerList, CustomerCreate, CustomerEdit } from './resources/customer'
 import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
@@ -13,7 +14,7 @@ import { GroupList, GroupCreate } from './resources/group'
 
 //Theming
 import { Dashboard } from './dashboard/dashboard'
-import { Face, Domain,  AccountTree, Mail, Group } from '@material-ui/icons';
+import { Face, Domain,  AccountTree, Mail, Store, Group } from '@material-ui/icons';
 
 const App = () => (
   <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
@@ -22,6 +23,10 @@ const App = () => (
       create={ UserCreate }
       edit={ UserEdit }
       icon={ Face } 
+    />
+    <Resource name="plans"
+      list={ PlanList }
+      icon={ Store } 
     />
     <Resource name="customers"
       list={ CustomerList }

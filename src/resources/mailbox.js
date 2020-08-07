@@ -13,14 +13,6 @@ import {
 
 } from 'react-admin';
 
-const plans = [
-        {'id': 1, 'name': 'INOVA OXMAIL BASIC 2GB'}, 
-        {'id': 2, 'name': 'INOVA OXMAIL BASIC 5GB'}, 
-        {'id': 3, 'name': 'INOVA OXMAIL ADVANCED 2GB'},
-        {'id': 4, 'name': 'INOVA OXMAIL ADVANCED 5GB'},
-        {'id': 5, 'name': 'INOVA OXMAIL ADVANCED 10GB'},
-]
-
 export const MailboxFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
@@ -32,6 +24,9 @@ export const MailboxList = ({ permissions, ...props }) =>  (
         <Datagrid>
             <TextField source="display_name" />
             <TextField source="email" />
+            <ReferenceField label="Plan" source="plan_id" reference="plans">
+                <TextField source="name" />
+            </ReferenceField>
             <NumberField source="maxQuota" />
             <BooleanField source="enabled" />
             <ReferenceField label="Context" source="ctx_id" reference="contexts">
@@ -48,7 +43,9 @@ export const MailboxCreate = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="email" />
             <TextInput  type="password" source="password" />
-            <SelectInput source="plan_id" label="Plan" choices={ plans } />
+            <ReferenceInput label="Plan" source="plan_id" reference="plans" >
+                <AutocompleteInput optionText="name" />
+            </ReferenceInput>
             <TextInput source="given_name" />
             <TextInput source="last_name" />
             <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
@@ -68,7 +65,9 @@ export const MailboxEdit = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="email" />
             <TextInput type="password" source="password" />
-            <SelectInput source="plan_id" label="Plan" choices={ plans } />
+            <ReferenceInput label="Plan" source="plan_id" reference="plans" >
+                <AutocompleteInput optionText="name" />
+            </ReferenceInput>
             <TextInput source="given_name" />
             <TextInput source="last_name" />
             <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
