@@ -3,7 +3,7 @@ import {
     // List Imports 
     List, Datagrid, TextField, ReferenceField, BooleanField, NumberField, ReferenceManyField,
     // Create/Edit Imports
-    Create, Edit, SimpleForm, TextInput, ReferenceInput, AutocompleteInput, BooleanInput, NumberInput, TabbedForm, FormTab,
+    Create, Edit, SimpleForm, TextInput, ReferenceInput, AutocompleteInput, BooleanInput, TabbedForm, FormTab,
     //Validation Imports
 
     //Delete imports 
@@ -16,7 +16,6 @@ export const ContextList = ({ permissions, ...props }) =>  (
     <List {...props}>
         <Datagrid>
             <TextField source="name" />
-            <NumberField source="maxQuota" />
             <BooleanField source="enabled" />
             <ReferenceField source="customer_id" reference="customers">
                 <TextField source="name" />
@@ -31,7 +30,7 @@ export const ContextCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="name" />
-            <NumberInput source="maxQuota" />
+            <TextInput source="description" />
             <TextInput type="password" source="password" />
             <ReferenceInput source="customer_id" reference="customers" >
                 <AutocompleteInput optionText="name" />
@@ -46,7 +45,6 @@ export const ContextEdit = ({ permissions, ...props }) => (
             <FormTab label="summary">
                 <TextInput source="name" />
                 <TextInput source="description" />
-                <NumberInput source="maxQuota" />
                 <BooleanInput source="enabled" />
                 <ReferenceInput source="customer_id" reference="customers" >
                     <AutocompleteInput optionText="name" />

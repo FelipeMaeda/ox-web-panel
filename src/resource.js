@@ -3,7 +3,7 @@ import {
     // List Imports 
     List, Datagrid, TextField,
     // Create Imports
-    Create, SimpleForm, TextInput, ReferenceInput, SelectArrayInput, AutocompleteInput,
+    Create, SimpleForm, TextInput, ReferenceInput, AutocompleteInput,
     //Validation Imports
 
     //Delete imports 
@@ -12,7 +12,7 @@ import {
 
 } from 'react-admin';
 
-export const GroupList = ({ permissions, ...props }) =>  (
+export const ResourceList = ({ permissions, ...props }) =>  (
     <List {...props}>
         <Datagrid>
             <TextField source="name" />
@@ -22,17 +22,13 @@ export const GroupList = ({ permissions, ...props }) =>  (
     </List>
 );
 
-export const GroupCreate = ({ permissions, ...props }) => (
+export const ResourceCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="name" />
+            <TextInput source="email" />
             <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
                 <AutocompleteInput optionText="name" />
-            </ReferenceInput>
-            <ReferenceInput source="mailbox_id" reference="mailboxes" >
-                <SelectArrayInput 
-                    optionText="email"
-                />
             </ReferenceInput>
         </SimpleForm>
     </Create>

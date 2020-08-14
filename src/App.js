@@ -10,11 +10,13 @@ import { CustomerList, CustomerCreate, CustomerEdit } from './resources/customer
 import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
 import { GroupList, GroupCreate } from './resources/group'
+import { ResourceCreate, ResourceList } from './resource';
 
 
 //Theming
 import { Dashboard } from './dashboard/dashboard'
 import { Face, Domain,  AccountTree, Mail, Store, Group, MeetingRoom } from '@material-ui/icons';
+import { ThemeCreate } from './resources/theme';
 
 const App = () => (
   <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
@@ -46,22 +48,19 @@ const App = () => (
       edit={ MailboxEdit }
       icon={ Mail }
     />
-{/*    <Resource name="groups"
+   <Resource name="groups"
       list={ GroupList }
       create={ GroupCreate }
       edit={ EditGuesser }
       icon={ Group }
     />
     <Resource name="resources"
-      list={ GroupList }
-      create={ GroupCreate }
+      list={ ResourceList }
+      create={ ResourceCreate }
       edit={ EditGuesser }
       icon={ MeetingRoom }
     />
-*/}
-
-
-
+    <Resource name="theme" create={ ThemeCreate } list={ContextList} />
 </Admin>
 );
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardActions, CardContent, Button, Divider } from '@material-ui/core';
+import { Card, CardActions, CardContent, Button } from '@material-ui/core';
 import { Home, Code } from '@material-ui/icons';
 import { Title } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
