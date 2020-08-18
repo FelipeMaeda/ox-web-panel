@@ -48,18 +48,6 @@ const App = () => (
       edit={ MailboxEdit }
       icon={ Mail }
     />
-   <Resource name="groups"
-      list={ GroupList }
-      create={ GroupCreate }
-      edit={ EditGuesser }
-      icon={ Group }
-    />
-    <Resource name="resources"
-      list={ ResourceList }
-      create={ ResourceCreate }
-      edit={ EditGuesser }
-      icon={ MeetingRoom }
-    />
     <Resource name="theme" create={ ThemeCreate } list={ContextList} />
 </Admin>
 );
