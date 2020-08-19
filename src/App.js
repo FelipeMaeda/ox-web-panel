@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, EditGuesser } from 'react-admin';
+import { Admin, Resource} from 'react-admin';
 // Rest Providers
 import dataProvider from './rest/dataProvider';
 import authProvider from './rest/authProvider';
@@ -9,13 +9,10 @@ import { PlanList } from './resources/plan'
 import { CustomerList, CustomerCreate, CustomerEdit } from './resources/customer'
 import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
-import { GroupList, GroupCreate } from './resources/group'
-import { ResourceCreate, ResourceList } from './resource';
-
 
 //Theming
 import { Dashboard } from './dashboard/dashboard'
-import { Face, Domain,  AccountTree, Mail, Store, Group, MeetingRoom } from '@material-ui/icons';
+import { Face, Domain,  AccountTree, Mail, Store} from '@material-ui/icons';
 import { ThemeCreate } from './resources/theme';
 
 const App = () => (

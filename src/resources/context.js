@@ -62,9 +62,6 @@ export const ContextEdit = ({ permissions, ...props }) => (
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
-            <FormTab label="groups">
-
-            </FormTab>
         </TabbedForm>
     </Edit>
 );
