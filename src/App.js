@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource} from 'react-admin';
+import { Admin, Resource, resolveBrowserLocale} from 'react-admin';
 // Rest Providers
 import dataProvider from './rest/dataProvider';
 import authProvider from './rest/authProvider';
@@ -19,17 +19,23 @@ import { ThemeCreate } from './resources/theme';
 //Translating
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import englishMessages from 'ra-language-english';
-import ptBRMessages from 'ra-language-pt-br';
+import ptBrMessages from 'ra-language-pt-br';
 
 const messages = {
-  en: { ...englishMessages },
+  en: englishMessages,
+  pt: ptBrMessages
 };
 
-const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
+
+
+const i18nProvider = polyglotI18nProvider(
+  locale => messages[locale] ? messages[locale] : messages.en,
+  resolveBrowserLocale()
+);
 
 
 const App = () => (
-  <Admin 
+  <Admin
     dashboard={Dashboard}
     dataProvider={dataProvider}
     authProvider={authProvider}
