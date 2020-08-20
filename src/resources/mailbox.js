@@ -63,16 +63,16 @@ export const MailboxCreate = ({ permissions, ...props }) => (
 export const MailboxEdit = ({ permissions, ...props }) => (
     <Edit {...props}>
         <SimpleForm>
-            <TextInput source="email" />
+            <TextField source="email" />
             <TextInput type="password" source="password" />
             <ReferenceInput label="Plan" source="plan_id" reference="plans" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
-            <TextInput source="given_name" />
-            <TextInput source="last_name" />
-            <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
-                <SelectInput optionText="name" />
-            </ReferenceInput>
+            <TextField source="given_name" />
+            <TextField source="last_name" />
+            <ReferenceField label="Context" source="ctx_id" reference="contexts">
+                <TextField source="name" />
+            </ReferenceField>
         </SimpleForm>
     </Edit>
 );
