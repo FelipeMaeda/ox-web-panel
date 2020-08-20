@@ -19,7 +19,7 @@ import { ThemeCreate } from './resources/theme';
 //Translating
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import englishMessages from 'ra-language-english';
-import pt-brMessages from 'ra-language-pt-br';
+import ptBRMessages from 'ra-language-pt-br';
 
 const messages = {
   en: { ...englishMessages },
