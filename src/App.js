@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, resolveBrowserLocale} from 'react-admin';
+import { Admin, Resource} from 'react-admin';
 // Rest Providers
 import dataProvider from './rest/dataProvider';
 import authProvider from './rest/authProvider';
@@ -11,27 +11,12 @@ import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
 
 //Theming
-import { Dashboard } from './dashboard/dashboard'
 import { Face, Domain,  AccountTree, Mail, Store} from '@material-ui/icons';
+import { Dashboard } from './dashboard/dashboard'
 import { ThemeCreate } from './resources/theme';
 
 
-//Translating
-import polyglotI18nProvider from 'ra-i18n-polyglot';
-import englishMessages from 'ra-language-english';
-import ptBrMessages from 'ra-language-pt-br';
-
-const messages = {
-  en: englishMessages,
-  pt: ptBrMessages
-};
-
-
-
-const i18nProvider = polyglotI18nProvider(
-  locale => messages[locale] ? messages[locale] : messages.en,
-  resolveBrowserLocale()
-);
+import i18nProvider from './translation/i18nProvider'
 
 
 const App = () => (
