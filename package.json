@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blackbox-vision/ra-language-spanish": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "ra-language-pt-br": "^1.2.3",
+    "ra-language-spanish": "^1.0.0",
     "react": "^16.13.1",
     "react-admin": "^3.7.1",
     "react-dom": "^16.13.1",
