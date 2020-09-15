@@ -31,7 +31,6 @@ export const ContextCreate = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="description" />
-            <TextInput type="password" source="password" />
             <ReferenceInput source="customer_id" reference="customers" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
