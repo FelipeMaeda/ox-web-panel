@@ -6,12 +6,13 @@ import authProvider from './rest/authProvider';
 // Resources
 import { UserList, UserCreate, UserEdit } from './resources/users'
 import { PlanList } from './resources/plan'
+import { ResellerList, ResellerCreate, ResellerEdit } from './resources/reseller'
 import { CustomerList, CustomerCreate, CustomerEdit } from './resources/customer'
 import { ContextList, ContextCreate, ContextEdit } from './resources/context'
 import { MailboxList, MailboxCreate, MailboxEdit } from './resources/mailbox'
 
 //Theming
-import { Face, Domain,  AccountTree, Mail, Store} from '@material-ui/icons';
+import { Face, Domain,  AccountTree, Mail, Store, AccountBox} from '@material-ui/icons';
 import { Dashboard } from './dashboard/dashboard'
 import { ThemeCreate } from './resources/theme';
 
@@ -37,11 +38,17 @@ const App = () => (
       list={ PlanList }
       icon={ Store } 
     />
+    <Resource name="resellers"
+      list={ ResellerList }
+      create={ ResellerCreate }
+      edit={ ResellerEdit }
+      icon={ Domain } 
+    />
     <Resource name="customers"
       list={ CustomerList }
       create={ CustomerCreate }
       edit={ CustomerEdit }
-      icon={ Domain } 
+      icon={ AccountBox } 
     />
     <Resource name="contexts"
       list={ ContextList }

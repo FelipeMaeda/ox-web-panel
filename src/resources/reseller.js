@@ -1,9 +1,9 @@
 import React from 'react';
 import {
     // List Imports 
-    List, Datagrid, TextField, ReferenceManyField, NumberField, BooleanField, ReferenceField,
+    List, Datagrid, TextField, ReferenceManyField, NumberField, BooleanField,
     // Create/Edit Imports
-    Create, Edit, SimpleForm, TextInput, TabbedForm, FormTab, AutocompleteInput, ReferenceInput,
+    Create, Edit, SimpleForm, TextInput, TabbedForm, FormTab,
     //Validation Imports
 
     //Delete imports 
@@ -12,56 +12,57 @@ import {
 
 } from 'react-admin';
 
-export const CustomerList = ({ permissions, ...props }) =>  (
+export const ResellerList = ({ permissions, ...props }) =>  (
     <List {...props}>
         <Datagrid>
             <TextField source="name" />
             <TextField source="cnpj" label="CNPJ" />
-            <ReferenceField source="reseller_id" reference="resellers">
-                <TextField source="name" />
-            </ReferenceField>
             <EditButton label="" />
             <DeleteButton label="" />
         </Datagrid>
     </List>
 );
 
-export const CustomerCreate = ({ permissions, ...props }) => (
+export const ResellerCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="cnpj" />
-            <ReferenceInput source="reseller_id" reference="resellers" >
-                <AutocompleteInput optionText="name" />
-            </ReferenceInput>
             <TextInput source="description" />
         </SimpleForm>
     </Create>
 );
 
-export const CustomerEdit = ({ permissions, ...props }) => (
+export const ResellerEdit = ({ permissions, ...props }) => (
     <Edit {...props}>
         <TabbedForm>
             <FormTab label="summary">
                 <TextInput source="name" />
                 <TextInput source="cnpj" />
                 <TextInput source="description" />
-                <ReferenceInput source="reseller_id" reference="resellers" >
-                    <AutocompleteInput optionText="name" />
-                </ReferenceInput>
             </FormTab>
             <FormTab label="users">
-                <ReferenceManyField reference="users" target="customer_id" addLabel={false}>
+                <ReferenceManyField reference="users" target="reseller_id" addLabel={false}>
                     <Datagrid>
                         <TextField source="username" />
                         <TextField source="name" />
                         <TextField source="description" />
-                        <EditButton />
+                        <EditButton label=""/>
+                    </Datagrid>
+                </ReferenceManyField>
+            </FormTab>
+            <FormTab label="customer">
+                <ReferenceManyField reference="customers" target="reseller_id" addLabel={false}>
+                    <Datagrid>
+                        <TextField source="name" /> 
+                        <TextField source="cnpj" />
+                        <TextField source="description" />
+                        <EditButton label="" />
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
             <FormTab label="contexts">
-                <ReferenceManyField reference="contexts" target="customer_id" addLabel={false}>
+                <ReferenceManyField reference="contexts" target="reseller_id" addLabel={false}>
                 <Datagrid>
                     <TextField source="name" />
                     <NumberField source="maxQuota" />

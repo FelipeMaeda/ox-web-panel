@@ -18,11 +18,19 @@ const customptBrMessages = {
                 description: 'Descrição',
             }
         },
+        resellers: {
+            name: 'Revendedor |||| Revendedores',
+            fields: {
+                name: 'Razão Social',
+                cnpj: 'CNPJ',
+                description: 'Descrição',
+            }
+        },
         customers: {
             name: 'Cliente |||| Clientes',
             fields: {
-                username: 'Nome de Usuário',
-                name: 'Nome',
+                name: 'Razão Social',
+                cnpj: 'CNPJ',
                 description: 'Descrição',
             }
         },
