@@ -9,7 +9,6 @@ import {
     //Validation Imports
 
     //Button imports 
-    DeleteButton, EditButton,
     // Misc
 
 } from 'react-admin';
@@ -27,7 +26,7 @@ export const Filters = (props) => (
 
 export const MailboxList = ({ permissions, ...props }) =>  (
     <List {...props} filters={ <Filters /> }>
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source="display_name" />
             <TextField source="email" />
             <ReferenceField label="Plan" source="plan_id" reference="plans">
@@ -38,8 +37,6 @@ export const MailboxList = ({ permissions, ...props }) =>  (
             <ReferenceField label="Context" source="ctx_id" reference="contexts">
                 <TextField source="name" />
             </ReferenceField>
-            <EditButton label="" />
-            <DeleteButton label="" />
         </Datagrid>
     </List>
 );

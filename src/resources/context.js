@@ -8,7 +8,6 @@ import {
     //Validation Imports
 
     //Delete imports 
-    DeleteButton, EditButton
     // Misc
 
 } from 'react-admin';
@@ -27,14 +26,12 @@ const Filters = (props) => (
 
 export const ContextList = ({ permissions, ...props }) =>  (
     <List {...props} filters={ <Filters /> } >
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source="name" />
             <BooleanField source="enabled" />
             <ReferenceField source="customer_id" reference="customers">
                 <TextField source="name" />
             </ReferenceField>
-            <EditButton label="" />
-            <DeleteButton label="" />
         </Datagrid>
     </List>
 );
@@ -71,13 +68,11 @@ export const ContextEdit = ({ permissions, ...props }) => (
             </FormTab>
             <FormTab label="mailboxes">
                 <ReferenceManyField reference="mailboxes" target="ctx_id" addLabel={false}>
-                    <Datagrid>
+                    <Datagrid rowClick="edit">
                         <TextField source="display_name" />
                         <TextField source="email" />
                         <NumberField source="maxQuota" />
                         <BooleanField source="enabled" />
-                        <EditButton label="" />
-                        <DeleteButton label="" />
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>

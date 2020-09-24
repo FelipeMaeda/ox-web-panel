@@ -1,13 +1,12 @@
 import React from 'react';
 import {
     // List Imports 
-    List, Datagrid, TextField, ReferenceField, BooleanField, Filter,
+    List, Datagrid, TextField, ReferenceField, Filter,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, BooleanInput, ReferenceInput, AutocompleteInput,
     //Validation Imports
     required, email, regex, 
     //Button imports 
-    DeleteButton, EditButton,
     // Misc
 
 } from 'react-admin';
@@ -40,19 +39,15 @@ const Filters = (props) => (
 
 export const UserList = ({ permissions, ...props }) =>  (
     <List {...props} filters={ <Filters/> }>
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source="username" />
             <TextField source="name" />
-            <TextField source="description" />
-            <BooleanField source ="isAdmin" />
             <ReferenceField source="reseller_id" reference="resellers">
                 <TextField source="name" />
             </ReferenceField>
             <ReferenceField source="customer_id" reference="customers">
                 <TextField source="name" />
             </ReferenceField>
-            <EditButton label="" />
-            <DeleteButton label="" />
         </Datagrid>
     </List>
 );

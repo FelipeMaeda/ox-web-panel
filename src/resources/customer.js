@@ -8,7 +8,6 @@ import {
     //Validation Imports
 
     //Delete imports 
-    DeleteButton, EditButton,
     // Misc
 
 } from 'react-admin';
@@ -25,14 +24,12 @@ const Filters = (props) => (
 
 export const CustomerList = ({ permissions, ...props }) =>  (
     <List {...props} filters={ <Filters/> }>
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source="name" />
             <TextField source="cnpj" label="CNPJ" />
             <ReferenceField source="reseller_id" reference="resellers">
                 <TextField source="name" />
             </ReferenceField>
-            <EditButton label="" />
-            <DeleteButton label="" />
         </Datagrid>
     </List>
 );
@@ -63,22 +60,19 @@ export const CustomerEdit = ({ permissions, ...props }) => (
             </FormTab>
             <FormTab label="users">
                 <ReferenceManyField reference="users" target="customer_id" addLabel={false}>
-                    <Datagrid>
+                    <Datagrid rowClick="edit">
                         <TextField source="username" />
                         <TextField source="name" />
                         <TextField source="description" />
-                        <EditButton />
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
             <FormTab label="contexts">
                 <ReferenceManyField reference="contexts" target="customer_id" addLabel={false}>
-                <Datagrid>
+                <Datagrid rowClick="edit">
                     <TextField source="name" />
                     <NumberField source="maxQuota" />
                     <BooleanField source="enabled" />
-                    <EditButton label="" />
-                    <DeleteButton label="" />
                 </Datagrid>
                 </ReferenceManyField>
             </FormTab>

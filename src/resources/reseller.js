@@ -8,7 +8,6 @@ import {
     //Validation Imports
 
     //Delete imports 
-    DeleteButton, EditButton,
     // Misc
 
 } from 'react-admin';
@@ -22,11 +21,9 @@ const Filters = (props) => (
 
 export const ResellerList = ({ permissions, ...props }) =>  (
     <List {...props} filters={ <Filters/> }>
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source="name" />
             <TextField source="cnpj" label="CNPJ" />
-            <EditButton label="" />
-            <DeleteButton label="" />
         </Datagrid>
     </List>
 );
@@ -51,32 +48,28 @@ export const ResellerEdit = ({ permissions, ...props }) => (
             </FormTab>
             <FormTab label="users">
                 <ReferenceManyField reference="users" target="reseller_id" addLabel={false}>
-                    <Datagrid>
+                    <Datagrid rowClick="edit">
                         <TextField source="username" />
                         <TextField source="name" />
                         <TextField source="description" />
-                        <EditButton label=""/>
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
             <FormTab label="customer">
                 <ReferenceManyField reference="customers" target="reseller_id" addLabel={false}>
-                    <Datagrid>
+                    <Datagrid rowClick="edit">
                         <TextField source="name" /> 
                         <TextField source="cnpj" />
                         <TextField source="description" />
-                        <EditButton label="" />
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
             <FormTab label="contexts">
                 <ReferenceManyField reference="contexts" target="reseller_id" addLabel={false}>
-                <Datagrid>
+                <Datagrid rowClick="edit">
                     <TextField source="name" />
                     <NumberField source="maxQuota" />
                     <BooleanField source="enabled" />
-                    <EditButton label="" />
-                    <DeleteButton label="" />
                 </Datagrid>
                 </ReferenceManyField>
             </FormTab>
