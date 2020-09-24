@@ -4,6 +4,7 @@ import {
     List, Datagrid, TextField, ReferenceField, BooleanField, NumberField, ReferenceManyField,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, ReferenceInput, AutocompleteInput, BooleanInput, TabbedForm, FormTab,
+    FormDataConsumer,
     //Validation Imports
 
     //Delete imports 
@@ -31,9 +32,19 @@ export const ContextCreate = ({ permissions, ...props }) => (
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="description" />
-            <ReferenceInput source="customer_id" reference="customers" >
+            <ReferenceInput initialValue="" source="reseller_id" reference="resellers" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
+            <FormDataConsumer>
+                {({ formData }) =>
+                <ReferenceInput disabled={ formData.reseller_id===""  }
+                    filter={ {reseller_id: formData.reseller_id} }
+                    source="customer_id"
+                    reference="customers" >
+                    <AutocompleteInput optionText="name" />
+                </ReferenceInput>
+                }
+            </FormDataConsumer>
         </SimpleForm>
     </Create>
 );
@@ -45,9 +56,6 @@ export const ContextEdit = ({ permissions, ...props }) => (
                 <TextInput source="name" />
                 <TextInput source="description" />
                 <BooleanInput source="enabled" />
-                <ReferenceInput source="customer_id" reference="customers" >
-                    <AutocompleteInput optionText="name" />
-                </ReferenceInput>
             </FormTab>
             <FormTab label="mailboxes">
                 <ReferenceManyField reference="mailboxes" target="ctx_id" addLabel={false}>
