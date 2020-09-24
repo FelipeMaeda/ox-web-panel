@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     // List Imports 
-    List, Datagrid, TextField, ReferenceManyField, NumberField, BooleanField, ReferenceField,
+    List, Datagrid, TextField, ReferenceManyField, NumberField, BooleanField, ReferenceField, 
+    Filter,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, TabbedForm, FormTab, AutocompleteInput, ReferenceInput,
     //Validation Imports
@@ -12,8 +13,18 @@ import {
 
 } from 'react-admin';
 
+const Filters = (props) => (
+    <Filter {...props}>
+        {/* <SearchInput  source="q" alwaysOn /> */}
+        <ReferenceInput label="Reseller" source="reseller_id" reference="resellers" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+        <TextInput source="cnpj" />
+    </Filter>
+);
+
 export const CustomerList = ({ permissions, ...props }) =>  (
-    <List {...props}>
+    <List {...props} filters={ <Filters/> }>
         <Datagrid>
             <TextField source="name" />
             <TextField source="cnpj" label="CNPJ" />

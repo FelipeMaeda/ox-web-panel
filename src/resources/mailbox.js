@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     // List Imports 
-    List, Datagrid, TextField, NumberField, BooleanField, ReferenceField, Filter,
+    List, Datagrid, TextField, NumberField, BooleanField, ReferenceField, 
+    Filter,
     // Create Imports
     Create, Edit, SimpleForm, 
     TextInput, ReferenceInput, SelectInput, AutocompleteInput, ArrayInput, SimpleFormIterator,
@@ -13,14 +14,19 @@ import {
 
 } from 'react-admin';
 
-export const MailboxFilter = (props) => (
+export const Filters = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+        <ReferenceInput label="Plan" source="plan_id" reference="plans">
+                <AutocompleteInput source="name" />
+        </ReferenceInput>
     </Filter>
 );
 
 export const MailboxList = ({ permissions, ...props }) =>  (
-    <List {...props} filters={ <MailboxFilter /> }>
+    <List {...props} filters={ <Filters /> }>
         <Datagrid>
             <TextField source="display_name" />
             <TextField source="email" />

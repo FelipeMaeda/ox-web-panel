@@ -2,6 +2,7 @@ import React from 'react';
 import {
     // List Imports 
     List, Datagrid, TextField, ReferenceManyField, NumberField, BooleanField,
+    Filter,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, TabbedForm, FormTab,
     //Validation Imports
@@ -12,8 +13,15 @@ import {
 
 } from 'react-admin';
 
+const Filters = (props) => (
+    <Filter {...props}>
+        {/* <SearchInput  source="q" alwaysOn /> */}
+        <TextInput source="cnpj" />
+    </Filter>
+);
+
 export const ResellerList = ({ permissions, ...props }) =>  (
-    <List {...props}>
+    <List {...props} filters={ <Filters/> }>
         <Datagrid>
             <TextField source="name" />
             <TextField source="cnpj" label="CNPJ" />

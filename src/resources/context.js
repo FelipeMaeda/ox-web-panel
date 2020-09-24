@@ -4,7 +4,7 @@ import {
     List, Datagrid, TextField, ReferenceField, BooleanField, NumberField, ReferenceManyField,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, ReferenceInput, AutocompleteInput, BooleanInput, TabbedForm, FormTab,
-    FormDataConsumer,
+    FormDataConsumer, Filter,
     //Validation Imports
 
     //Delete imports 
@@ -13,8 +13,20 @@ import {
 
 } from 'react-admin';
 
+const Filters = (props) => (
+    <Filter {...props}>
+        {/* <SearchInput  source="q" alwaysOn /> */}
+        <ReferenceInput label="Reseller" source="reseller_id" reference="resellers" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+        <ReferenceInput label="Customer" source="customer_id" reference="customers" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+    </Filter>
+);
+
 export const ContextList = ({ permissions, ...props }) =>  (
-    <List {...props}>
+    <List {...props} filters={ <Filters /> } >
         <Datagrid>
             <TextField source="name" />
             <BooleanField source="enabled" />

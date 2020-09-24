@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     // List Imports 
-    List, Datagrid, TextField, ReferenceField, BooleanField,
+    List, Datagrid, TextField, ReferenceField, BooleanField, Filter,
     // Create/Edit Imports
     Create, Edit, SimpleForm, TextInput, BooleanInput, ReferenceInput, AutocompleteInput,
     //Validation Imports
@@ -25,8 +25,21 @@ const validatePassword = [
     )
 ];
 
+
+const Filters = (props) => (
+    <Filter {...props}>
+        {/* <SearchInput  source="q" alwaysOn /> */}
+        <ReferenceInput label="Reseller" source="reseller_id" reference="resellers" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+        <ReferenceInput label="Customer" source="customer_id" reference="customers" >
+                <AutocompleteInput optionText="name" />
+        </ReferenceInput>
+    </Filter>
+);
+
 export const UserList = ({ permissions, ...props }) =>  (
-    <List {...props}>
+    <List {...props} filters={ <Filters/> }>
         <Datagrid>
             <TextField source="username" />
             <TextField source="name" />
