@@ -2,7 +2,7 @@ Frontend for [OX Admin Rest API](https://github.com/leomarangoni/ox-rest-api).
 
 ### Developed on top of [Marmelab's React Admin](https://marmelab.com/react-admin/)
 
-## Get Starded
+## Get Started
 
 ```
 git clone https://github.com/leomarangoni/ox-web-panel.git
