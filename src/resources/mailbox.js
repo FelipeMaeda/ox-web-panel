@@ -43,7 +43,7 @@ export const MailboxList = ({ permissions, ...props }) =>  (
 
 export const MailboxCreate = ({ permissions, ...props }) => (
     <Create {...props}>
-        <SimpleForm>
+        <SimpleForm redirect={false}>
             <TextInput source="email" />
             <TextInput  type="password" source="password" />
             <ReferenceInput label="Plan" source="plan_id" reference="plans" >
