@@ -3,7 +3,7 @@ import {
     // List Imports 
     List, Datagrid, TextField, ReferenceField, Filter,
     // Create/Edit Imports
-    Create, Edit, SimpleForm, TextInput, BooleanInput, ReferenceInput, AutocompleteInput,
+    Create, Edit, SimpleForm, TextInput, ReferenceInput, AutocompleteInput,
     //Validation Imports
     required, email, regex, 
     //Button imports 
@@ -65,7 +65,6 @@ export const UserCreate = ({ permissions, ...props }) => (
             <ReferenceInput source="customer_id" reference="customers" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
-            <BooleanInput source="isAdmin" /> 
         </SimpleForm>
     </Create>
 );
@@ -82,7 +81,6 @@ export const UserEdit = ({ permissions, ...props }) => (
             <ReferenceInput source="customer_id" reference="customers">
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
-            <BooleanInput source="isAdmin" />
         </SimpleForm>
     </Edit>
 );
