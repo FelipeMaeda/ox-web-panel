@@ -29,12 +29,12 @@ export const MailboxList = ({ permissions, ...props }) =>  (
         <Datagrid rowClick="edit">
             <TextField source="display_name" />
             <TextField source="email" />
-            <ReferenceField label="Plan" source="plan_id" reference="plans">
+            <ReferenceField source="plan_id" reference="plans">
                 <TextField source="name" />
             </ReferenceField>
             <NumberField source="maxQuota" />
             <BooleanField source="enabled" />
-            <ReferenceField label="Context" source="ctx_id" reference="contexts">
+            <ReferenceField source="ctx_id" reference="contexts">
                 <TextField source="name" />
             </ReferenceField>
         </Datagrid>
@@ -51,7 +51,7 @@ export const MailboxCreate = ({ permissions, ...props }) => (
             </ReferenceInput>
             <TextInput source="given_name" />
             <TextInput source="last_name" />
-            <ReferenceInput label="Context" source="ctx_id" reference="contexts" >
+            <ReferenceInput source="ctx_id" reference="contexts" >
                 <AutocompleteInput optionText="name" />
             </ReferenceInput>
             <ArrayInput source="aliases">

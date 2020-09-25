@@ -7,8 +7,11 @@ const customptBrMessages = {
             name: 'Usuário |||| Usuários',
             fields: {
                 username: 'Nome de Usuário',
+                password: 'Senha',
                 name: 'Nome',
                 description: 'Descrição',
+                reseller_id: 'Revendedor',
+                customer_id: 'Cliente'
             }
         },
         plans: {
@@ -32,6 +35,7 @@ const customptBrMessages = {
                 name: 'Razão Social',
                 cnpj: 'CNPJ',
                 description: 'Descrição',
+                reseller_id: 'Revendedor',
             }
         },
         contexts: {
@@ -40,14 +44,19 @@ const customptBrMessages = {
                 username: 'Nome de Usuário',
                 name: 'Nome',
                 description: 'Descrição',
+                reseller_id: 'Revendedor',
+                customer_id: 'Cliente',
             }
         },
         mailboxes: {
             fields: {
+                display_name: 'Nome de Exibição',
                 password: 'Senha',
                 given_name: 'Nome',
                 last_name: 'Sobrenome',
-                description: 'Descrição',
+                plan_id: 'Plano',
+                enabled: 'Ativa',
+                ctx_id: 'Hierarquia',
             }
         },
         theme: {
